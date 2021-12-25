@@ -11,7 +11,11 @@
       <el-table class="timetable" border :data="todayTable">
         <el-table-column prop="label" width="100" />
         <el-table-column prop="time" width="100" />
-        <el-table-column prop="course" :label="todayWeekday" />
+        <el-table-column prop="course" :label="todayWeekday">
+          <template #default="{ row }">
+            <div v-html="row.course" />
+          </template>
+        </el-table-column>
       </el-table>
     </div>
     <div class="tomorrow">
@@ -19,7 +23,11 @@
       <el-table class="timetable" border :data="tomorrowTable">
         <el-table-column prop="label" width="100" />
         <el-table-column prop="time" width="100" />
-        <el-table-column prop="course" :label="tomorrowWeekday" />
+        <el-table-column prop="course" :label="tomorrowWeekday">
+          <template #default="{ row }">
+            <div v-html="row.course" />
+          </template>
+        </el-table-column>
       </el-table>
     </div>
     <el-button @click="onViewAll">
@@ -31,13 +39,41 @@
       <el-table class="timetable" border :data="allTable">
         <el-table-column prop="label" width="100" />
         <el-table-column prop="time" width="100" />
-        <el-table-column prop="Monday" label="星期一" />
-        <el-table-column prop="Tuesday" label="星期二" />
-        <el-table-column prop="Wednesday" label="星期三" />
-        <el-table-column prop="Thursday" label="星期四" />
-        <el-table-column prop="Friday" label="星期五" />
-        <el-table-column prop="Saturday" label="星期六" />
-        <el-table-column prop="Sunday" label="星期日" />
+        <el-table-column prop="Monday" label="星期一">
+          <template #default="{ row }">
+            <div v-html="row.Monday" />
+          </template>
+        </el-table-column>
+        <el-table-column prop="Tuesday" label="星期二">
+          <template #default="{ row }">
+            <div v-html="row.Tuesday" />
+          </template>
+        </el-table-column>
+        <el-table-column prop="Wednesday" label="星期三">
+          <template #default="{ row }">
+            <div v-html="row.Wednesday" />
+          </template>
+        </el-table-column>
+        <el-table-column prop="Thursday" label="星期四">
+          <template #default="{ row }">
+            <div v-html="row.Thursday" />
+          </template>
+        </el-table-column>
+        <el-table-column prop="Friday" label="星期五">
+          <template #default="{ row }">
+            <div v-html="row.Friday" />
+          </template>
+        </el-table-column>
+        <el-table-column prop="Saturday" label="星期六">
+          <template #default="{ row }">
+            <div v-html="row.Saturday" />
+          </template>
+        </el-table-column>
+        <el-table-column prop="Sunday" label="星期日">
+          <template #default="{ row }">
+            <div v-html="row.Sunday" />
+          </template>
+        </el-table-column>
       </el-table>
     </div>
   </div>
