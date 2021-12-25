@@ -1,30 +1,41 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+  <el-header class="header">
+    <div class="header-wrap">
+      <router-link class="logo" to="/">
+        <img class="logo-icon" :src="logoIcon" />
+      </router-link>
+      <div class="nav">
+        <router-link to="/">Home</router-link>
+        <router-link to="/article-list">Articles</router-link>
+        <router-link to="/lp">LP</router-link>
+        <router-link to="/note">Note</router-link>
+        <router-link to="/about">About</router-link>
+      </div>
+    </div>
+  </el-header>
+  <el-main class="main">
+    <router-view />
+  </el-main>
+  <el-footer class="footer">
+    <div class="footer-info">© 2021 蔡延松</div>
+    <a href="http://www.beian.miit.gov.cn/" target="_blank"
+      >浙ICP备19046722号</a
+    >
+  </el-footer>
 </template>
 
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  data() {
+    return {
+      logoIcon: require("@/assets/dog_128px.png"),
+    };
+  },
+});
+</script>
+
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+@import url("./app.less");
 </style>

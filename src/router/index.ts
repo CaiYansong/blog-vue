@@ -1,18 +1,17 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
-const Home = () => import("@/views/home/index.vue");
-const LP = () => import("@/views/lp/index.vue");
-
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "home",
-    component: Home,
+    component: () =>
+      import(/* webpackChunkName: "about" */ "@/views/home/index.vue"),
   },
   {
     path: "/lp",
     name: "lp",
-    component: LP,
+    component: () =>
+      import(/* webpackChunkName: "about" */ "@/views/lp/index.vue"),
   },
   {
     path: "/about",
@@ -22,6 +21,11 @@ const routes: Array<RouteRecordRaw> = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: "404",
+    component: () => import(/* webpackChunkName: "about" */ "@/404.vue"),
   },
 ];
 
