@@ -12,4 +12,13 @@ export default {
       resolvers: [ElementPlusResolver()],
     }),
   ],
+  css: {
+    loaderOptions: {
+      less: {
+        globalVars: {
+          hack: `true; @import '~@/assets/css/base.less';`
+        }
+      }
+    },
+  },
 }
