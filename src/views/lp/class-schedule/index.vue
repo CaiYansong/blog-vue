@@ -110,26 +110,32 @@ export default defineComponent({
     const tomorrowTable: Ref<TDayTimetable> = ref([]);
     const allTable: Ref<TAllTimetable> = ref([]);
 
-    todayWeekday.value = dayjs().format("dddd");
-    const tomorrow = dayjs().add(1, "day");
-    tomorrowWeekday.value = tomorrow.format("dddd");
+    function render() {
+      todayWeekday.value = dayjs().format("dddd");
+      const tomorrow = dayjs().add(1, "day");
+      tomorrowWeekday.value = tomorrow.format("dddd");
+      const day = dayjs().day();
+      todayTable.value = getDayTimetable(day);
+      tomorrowTable.value = getDayTimetable(
+        day + 1,
+        new Date(tomorrow.format())
+      );
+      allTable.value = getAllTimetable();
+    }
+
+    render();
+
+    let timer = setInterval(() => {
+      currentDatetime.value = dayjs().format("YYYY-MM-DD dddd HH:mm:ss");
+      render();
+    }, 1000);
 
     function onViewAll() {
       showAll.value = !showAll.value;
     }
-    let timer = setInterval(() => {
-      currentDatetime.value = dayjs().format("YYYY-MM-DD dddd HH:mm:ss");
-    }, 1000);
-
-    const day = dayjs().day();
-    todayTable.value = getDayTimetable(day);
-    tomorrowTable.value = getDayTimetable(day + 1, new Date(tomorrow.format()));
-    allTable.value = getAllTimetable();
 
     onBeforeUnmount(() => {
-      console.log("onBeforeUnmount");
       clearInterval(timer);
-      timer = 0;
     });
     return {
       showAll,
