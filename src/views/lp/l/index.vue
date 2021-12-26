@@ -8,7 +8,11 @@
     <div class="info-card">
       <h2>相约</h2>
       <ul class="history">
-        <li class="dating-item" v-for="item in datingArr" :key="item.startTime">
+        <li
+          class="dating-item"
+          v-for="item in datingArr"
+          :key="item.datingTime"
+        >
           <div class="dating-address">{{ item.address }}</div>
           <div class="dating-time">{{ item.datingTime }}</div>
           <div class="interval-time">距离上次：{{ item.intervalTime }}</div>

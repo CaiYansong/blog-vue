@@ -1,3 +1,3 @@
 module.exports = {
-  presets: ["@vue/cli-plugin-babel/preset"],
+  presets: ["babel-eslint", "@vue/cli-plugin-babel/preset"],
 };

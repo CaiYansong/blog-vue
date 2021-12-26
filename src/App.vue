@@ -28,11 +28,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import logoIcon from "@/assets/dog_128px.png";
 
 export default defineComponent({
   data() {
     return {
-      logoIcon: require("@/assets/dog_128px.png"),
+      logoIcon,
     };
   },
 });

@@ -5,8 +5,8 @@ import dayjs from "dayjs";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import "dayjs/locale/zh-cn";
 
-require("dayjs/locale/zh-cn");
 dayjs.locale("zh-cn"); // 全局使用简体中文
 
 // 动态 title

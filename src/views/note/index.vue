@@ -26,10 +26,10 @@
               {{ item.datetime }}
             </div>
             <div class="operation">
-              <el-button @click="onEdit(item.id, item.val)" size="mini">
+              <el-button @click="onEdit(item.id||'', item.val)" size="mini">
                 编辑
               </el-button>
-              <el-button @click="onRemove(item.id)" size="mini">
+              <el-button @click="onRemove(item.id||'')" size="mini">
                 删除
               </el-button>
             </div>

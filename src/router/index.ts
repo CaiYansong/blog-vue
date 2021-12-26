@@ -6,7 +6,7 @@ const routes: Array<RouteRecordRaw> = [
     name: "home",
     component: () =>
       import(/* webpackChunkName: "about" */ "@/views/home/index.vue"),
-    meta: { title: "home" },
+    meta: { title: "蔡延松" },
   },
   {
     path: "/lp",
@@ -69,7 +69,7 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory('/'),
   routes,
 });
 
