@@ -23,12 +23,7 @@
 import { defineComponent, ref, onBeforeUnmount, Ref } from "vue";
 import getTimeOfX from "@/utils/getTimeOfX";
 import LTime from "./l-time.vue";
-import {
-  ACQUAINTANCE_DATE,
-  datingList,
-  IDatingItem,
-  TDatingList,
-} from "./dates";
+import { ACQUAINTANCE_DATE, datingList, IDatingItem } from "./dates";
 
 export default defineComponent({
   components: {

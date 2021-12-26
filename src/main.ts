@@ -1,6 +1,6 @@
 import { createApp } from "vue";
-import ElementPlus from "element-plus";
-import "element-plus/dist/index.css";
+// 解决：按需引入 message 样式不生效问题
+import "element-plus/theme-chalk/el-message.css";
 import dayjs from "dayjs";
 import App from "./App.vue";
 import router from "./router";
@@ -12,5 +12,4 @@ dayjs.locale("zh-cn"); // 全局使用简体中文
 const app = createApp(App);
 app.use(store);
 app.use(router);
-app.use(ElementPlus);
 app.mount("#app");
