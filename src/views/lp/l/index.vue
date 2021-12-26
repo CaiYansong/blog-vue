@@ -41,7 +41,11 @@ export default defineComponent({
     const datingArr: Ref<TDatingInfos> = ref([]);
 
     function getAcquaintanceTime(): string {
-      return getTimeOfX(new Date(ACQUAINTANCE_DATE).getTime(), Date.now());
+      return getTimeOfX(
+        new Date(ACQUAINTANCE_DATE).getTime(),
+        Date.now(),
+        true
+      );
     }
 
     function renderDatingList() {

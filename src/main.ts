@@ -9,6 +9,15 @@ import store from "./store";
 require("dayjs/locale/zh-cn");
 dayjs.locale("zh-cn"); // 全局使用简体中文
 
+// 动态 title
+router.beforeEach((to: { meta?: { title?: string } }, from, next) => {
+  /* 路由发生变化修改页面title */
+  if (to.meta && to.meta.title) {
+    document.title = to.meta.title;
+  }
+  next();
+});
+
 const app = createApp(App);
 app.use(store);
 app.use(router);

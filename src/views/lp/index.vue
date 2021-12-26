@@ -1,5 +1,6 @@
 <template>
   <div class="lp-menu-page">
+    <ShowL />
     <ul>
       <li v-for="menu in menus" :key="menu.path">
         <h3>
@@ -19,6 +20,7 @@
 </template>
 
 <script lang="ts">
+import ShowL from "./l/l-time.vue";
 import ClassSchedule from "./class-schedule/index.vue";
 interface IFMenuType {
   label: string;
@@ -31,6 +33,7 @@ interface IFDataType {
 
 export default {
   components: {
+    ShowL,
     ClassSchedule,
   },
   data(): IFDataType {
@@ -45,16 +48,8 @@ export default {
           label: "课表",
         },
         {
-          path: "/local-note",
-          label: "本地记事本",
-        },
-        {
           href: "https://codepen.io/caiyansong/full/wvgbbed",
           label: "本地记事本（老）",
-        },
-        {
-          path: "/memory-tool",
-          label: "记忆辅助工具",
         },
       ],
     };

@@ -13,7 +13,7 @@ export default defineComponent({
   setup() {
     const time = ref(getTime());
     function getTime(): string {
-      return getTimeOfX(new Date(AGREE_DATE).getTime(), Date.now());
+      return getTimeOfX(new Date(AGREE_DATE).getTime(), Date.now(), true);
     }
 
     const timer = setInterval(() => {

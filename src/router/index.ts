@@ -13,12 +13,18 @@ const routes: Array<RouteRecordRaw> = [
     name: "lp",
     component: () =>
       import(/* webpackChunkName: "about" */ "@/views/lp/index.vue"),
+    meta: {
+      title: "蔡延松-LP",
+    },
   },
   {
     path: "/lp/l",
     name: "lp-l",
     component: () =>
       import(/* webpackChunkName: "about" */ "@/views/lp/l/index.vue"),
+    meta: {
+      title: "蔡延松-L",
+    },
   },
   {
     path: "/lp/class-schedule",
@@ -27,18 +33,9 @@ const routes: Array<RouteRecordRaw> = [
       import(
         /* webpackChunkName: "about" */ "@/views/lp/class-schedule/index.vue"
       ),
-  },
-  {
-    path: "/lp/local-note",
-    name: "lp-local-note",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "@/views/lp/local-note.vue"),
-  },
-  {
-    path: "/lp/memory-tool",
-    name: "lp-memory-tool",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "@/views/lp/memory-tool.vue"),
+    meta: {
+      title: "LP-课程表",
+    },
   },
   {
     path: "/note",
@@ -48,6 +45,9 @@ const routes: Array<RouteRecordRaw> = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "@/views/note/index.vue"),
+    meta: {
+      title: "蔡延松-Note",
+    },
   },
   {
     path: "/about",
@@ -57,6 +57,9 @@ const routes: Array<RouteRecordRaw> = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "@/views/About.vue"),
+    meta: {
+      title: "蔡延松-About",
+    },
   },
   {
     path: "/:catchAll(.*)",
