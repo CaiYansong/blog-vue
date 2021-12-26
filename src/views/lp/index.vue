@@ -12,10 +12,14 @@
         </h3>
       </li>
     </ul>
+    <div class="class-schedule-box">
+      <ClassSchedule />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
+import ClassSchedule from "./class-schedule/index.vue";
 interface IFMenuType {
   label: string;
   path?: string;
@@ -26,6 +30,9 @@ interface IFDataType {
 }
 
 export default {
+  components: {
+    ClassSchedule,
+  },
   data(): IFDataType {
     return {
       menus: [
@@ -55,4 +62,11 @@ export default {
 };
 </script>
 
-<style lang="less"></style>
+<style lang="less">
+.lp-menu-page {
+  .class-schedule-box {
+    padding: 8px;
+    border: 1px solid #eee;
+  }
+}
+</style>

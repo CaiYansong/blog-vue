@@ -74,7 +74,6 @@ export function getCourse(
       html += info;
     }
   );
-  console.log(html);
 
   return html;
 }

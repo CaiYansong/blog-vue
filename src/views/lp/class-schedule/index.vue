@@ -1,16 +1,16 @@
 <template>
   <div class="lp-class-schedule">
-    <h3 class="datetime">{{ currentDatetime }}</h3>
-    <h3 class="current-week">
+    <h2 class="datetime">{{ currentDatetime }}</h2>
+    <h2 class="current-week">
       <template v-if="currentWeek > 0">目前是第 {{ currentWeek }} 周</template>
       <template v-else>未开学</template>
-    </h3>
-    <h4 class="title">{{ title }}</h4>
+    </h2>
+    <h3 class="title">{{ title }}</h3>
     <div class="today">
-      <div class="card-title">当天课表</div>
+      <h4 class="card-title">当天课表</h4>
       <el-table class="timetable" border :data="todayTable">
-        <el-table-column prop="label" width="100" />
-        <el-table-column prop="time" width="100" />
+        <el-table-column prop="label" width="80" />
+        <el-table-column prop="time" width="92" />
         <el-table-column prop="course" :label="todayWeekday">
           <template #default="{ row }">
             <div v-html="row.course" />
@@ -19,10 +19,10 @@
       </el-table>
     </div>
     <div class="tomorrow">
-      <div class="card-title">明天课表</div>
+      <h4 class="card-title">明天课表</h4>
       <el-table class="timetable" border :data="tomorrowTable">
-        <el-table-column prop="label" width="100" />
-        <el-table-column prop="time" width="100" />
+        <el-table-column prop="label" width="80" />
+        <el-table-column prop="time" width="92" />
         <el-table-column prop="course" :label="tomorrowWeekday">
           <template #default="{ row }">
             <div v-html="row.course" />
@@ -35,10 +35,10 @@
       <template v-else>点击查看完整课表</template>
     </el-button>
     <div class="all" v-if="showAll">
-      <div class="card-title">完整课表</div>
+      <h4 class="card-title">完整课表</h4>
       <el-table class="timetable" border :data="allTable">
-        <el-table-column prop="label" width="100" />
-        <el-table-column prop="time" width="100" />
+        <el-table-column prop="label" width="80" />
+        <el-table-column prop="time" width="92" />
         <el-table-column prop="Monday" label="星期一">
           <template #default="{ row }">
             <div v-html="row.Monday" />
@@ -111,7 +111,8 @@ export default defineComponent({
     const allTable: Ref<TAllTimetable> = ref([]);
 
     todayWeekday.value = dayjs().format("dddd");
-    tomorrowWeekday.value = dayjs().add(1, "day").format("dddd");
+    const tomorrow = dayjs().add(1, "day");
+    tomorrowWeekday.value = tomorrow.format("dddd");
 
     function onViewAll() {
       showAll.value = !showAll.value;
@@ -122,7 +123,7 @@ export default defineComponent({
 
     const day = dayjs().day();
     todayTable.value = getDayTimetable(day);
-    tomorrowTable.value = getDayTimetable(day + 1);
+    tomorrowTable.value = getDayTimetable(day + 1, new Date(tomorrow.format()));
     allTable.value = getAllTimetable();
 
     onBeforeUnmount(() => {
