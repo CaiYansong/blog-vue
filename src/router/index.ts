@@ -17,7 +17,8 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/lp/l",
     name: "lp-l",
-    component: () => import(/* webpackChunkName: "about" */ "@/views/lp/l.vue"),
+    component: () =>
+      import(/* webpackChunkName: "about" */ "@/views/lp/l/index.vue"),
   },
   {
     path: "/lp/class-schedule",
