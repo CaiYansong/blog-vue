@@ -14,21 +14,31 @@
         <template v-else>保存</template>
       </el-button>
     </div>
+    <h3>列表</h3>
     <ul class="note-list">
-      <li class="note-item" v-for="item in noteList" :key="item.id">
-        <div class="container">
-          {{ item.val }}
-        </div>
-        <div class="item-footer">
-          <div class="datetime">
-            {{ item.datetime }}
+      <template v-if="noteList.length > 0">
+        <li class="note-item" v-for="item in noteList" :key="item.id">
+          <div class="container">
+            {{ item.val }}
           </div>
-          <div class="operation">
-            <el-button @click="onEdit(item.id, item.val)">编辑</el-button>
-            <el-button @click="onRemove(item.id)">删除</el-button>
+          <div class="item-footer">
+            <div class="datetime">
+              {{ item.datetime }}
+            </div>
+            <div class="operation">
+              <el-button @click="onEdit(item.id, item.val)" size="mini">
+                编辑
+              </el-button>
+              <el-button @click="onRemove(item.id)" size="mini">
+                删除
+              </el-button>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
+      </template>
+      <div v-else class="empty-tip">
+        <h4>数据为空</h4>
+      </div>
     </ul>
   </div>
 </template>
@@ -108,11 +118,29 @@ export default defineComponent({
     }
   }
   .note-list {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #eee;
+    border-radius: 4px;
     .note-item {
+      margin-bottom: 12px;
+      padding: 12px;
+      list-style: none;
+      border: 1px solid #e5e5e5;
+      border-radius: 4px;
+      box-sizing: border-box;
       .container {
         white-space: break-spaces;
       }
+      .item-footer {
+        display: flex;
+        justify-content: space-between;
+      }
     }
+  }
+  .empty-tip {
+    text-align: center;
+    color: #999;
   }
 }
 </style>
